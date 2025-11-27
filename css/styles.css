@@ -32,17 +32,15 @@ li p {
 }
 ul p:before {
     content: '';
-    background: url(../media/diamond-shape.svg) no-repeat 50% 50%;
+    background: url(../media/pixel_diamond.png) no-repeat 50% 50%;
     background-size: contain;
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 3px;
 }
-.about p:before {
-    filter: invert(1);
-}
+
 
 header {
     display: flex;
@@ -92,8 +90,10 @@ main {
     width: 80vw;
     gap: 20px;
 }
-.service-card {
+.service-card-container {
     width: calc((100% / 2) - 3%);
+}
+.service-card {
     /* border: solid 6px #fff; */
     padding: 20px;
     border: 20px solid transparent;
@@ -102,12 +102,21 @@ main {
     border-image-repeat: stretch;
     image-rendering: pixelated;
 }
+.service-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .service-card h3, .service-card p, .service-card li {
     color: #000000;
 }
 .service-card h3 {
     font-family: 'Press Start 2P', cursive;
+}
+.service-card-container img {
+    max-height: 60px;
+    margin: 5px;
 }
 footer {
     justify-self: flex-end;
@@ -127,10 +136,14 @@ form {
 }
 label {
     font-family: "Courier New", Courier, monospace;
+    font-size: 1.4rem;
 }
 .submit {
     border: none;
     background: none;
     font-family: "Press Start 2P", cursive;
     font-size: 2rem;
+}
+a:hover {
+    cursor: url(../media/pixel_sword.png), pointer;
 }
