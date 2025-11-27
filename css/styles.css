@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: #1A1A1A;
     height: 100vh
 }
 
-h1, h2, h3, nav a {
+h1, h2, nav a {
     font-family: 'Press Start 2P', cursive;
     background-image: linear-gradient(90deg,rgba(255, 215, 0, 1) 0%, rgba(218, 165, 32, 1) 100%);
     -webkit-background-clip: text;
@@ -17,22 +19,44 @@ p , li {
     color: #F0F0F0;
 }
 
+ul {
+    list-style: none;
+}
+li {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+li p {
+    margin-left: 20px;
+}
+ul p:before {
+    content: '';
+    background: url(../media/diamond-shape.svg) no-repeat 50% 50%;
+    background-size: contain;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+.about p:before {
+    filter: invert(1);
+}
+
 header {
     display: flex;
     flex-direction: row;
-    max-height: 100px;
+    min-height: 100px;
     align-items: center;
-    margin-bottom: 60px
-}
-header .logo {
-    height: 100%;
+    margin-bottom: 60px;
+    justify-content: center;
+    gap: 20px;
 }
 header .logo img {
     max-height: 50px;
-    margin: 10px;
 }
 nav {
-    margin-left: auto;
     padding: 10px;
 }
 .nav {
@@ -47,30 +71,17 @@ main {
     gap: 100px;
 }
 .about {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
     width: 80vw;
     margin: 0 auto;
     justify-items: left;
     align-items: center
 }
-.about h2 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.about p {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-.about ul {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-}
 .about img {
     grid-column: 2 / 3;
     grid-row: 1 / 4;
     max-height: 400px;
+    width: 40%;
 }
 .services {
     display: flex;
@@ -83,6 +94,23 @@ main {
 }
 .service-card {
     width: calc((100% / 2) - 3%);
-    border: solid 6px #fff;
+    /* border: solid 6px #fff; */
     padding: 20px;
+    border: 20px solid transparent;
+    border-image-source: url(../media/border.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: stretch;
+    image-rendering: pixelated;
+}
+
+.service-card h3, .service-card p, .service-card li {
+    color: #000000;
+}
+.service-card h3 {
+    font-family: 'Press Start 2P', cursive;
+}
+footer {
+    justify-self: flex-end;
+    display: flex;
+    justify-content: center;
 }
