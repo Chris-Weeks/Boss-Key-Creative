@@ -114,3 +114,23 @@ footer {
     display: flex;
     justify-content: center;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 20px solid transparent;
+    border-image-source: url(../media/border.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: stretch;
+    image-rendering: pixelated;
+    padding: 40px 200px;
+}
+label {
+    font-family: "Courier New", Courier, monospace;
+}
+.submit {
+    border: none;
+    background: none;
+    font-family: "Press Start 2P", cursive;
+    font-size: 2rem;
+}
