@@ -3,8 +3,19 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: #1A1A1A;
+    background: #1A1A1A;
     height: 100vh
+}
+
+body .dark {
+    background: #1A1A1A;
+}
+body .light {
+    background: #222222;
+    color: #F0F0F0;
+}
+body .dungeon {
+    background: url(../media/dungeon_wall.jpeg) repeat;
 }
 
 h1, h2, nav a {
@@ -146,4 +157,13 @@ label {
 }
 a:hover {
     cursor: url(../media/pixel_sword.png), pointer;
+}
+.background-select-button {
+    background-color: transparent;
+    border: none;
+    font-family: "Press Start 2P", cursive;
+    font-size: 1rem;
+    background-image: linear-gradient(90deg,rgba(255, 215, 0, 1) 0%, rgba(218, 165, 32, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
