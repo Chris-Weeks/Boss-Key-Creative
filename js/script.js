@@ -11,6 +11,11 @@ const changeBackground = (selectedTheme) => {
     // 4. Add the new class
     if (selectedTheme) {
         body.classList.add(selectedTheme);
+        // Persist selection for future visits
+        localStorage.setItem('theme', selectedTheme);
+    } else {
+        // Clear saved theme if none provided
+        localStorage.removeItem('theme');
     }
 }
 
@@ -24,3 +29,11 @@ if (backgroundSelect) {
         }
     });
 }
+
+// Restore saved theme on load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        changeBackground(savedTheme);
+    }
+});
