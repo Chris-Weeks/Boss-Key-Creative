@@ -7,15 +7,18 @@ body {
     height: 100vh
 }
 
-body .dark {
+body.dark {
     background: #1A1A1A;
 }
-body .light {
-    background: #222222;
-    color: #F0F0F0;
+body.light {
+    background: #F0F0F0;
 }
-body .dungeon {
-    background: url(../media/dungeon_wall.jpeg) repeat;
+body.light p {
+    color: #1A1A1A;
+}
+body.dungeon {
+    background: url(../media/dungeon_wall2.jpeg) repeat center;
+    background-size: 400px;
 }
 
 h1, h2, nav a {

@@ -1,20 +1,26 @@
-const backgroundSelect = document.getElementsByClassName('background-select');
-let backgroundSelected= '';
+// 1. Use querySelector to get the single container element
+const backgroundSelect = document.querySelector('.background-select');
 
-const changeBackground = (backgroundSelected) => {
-    const body = document.querySelector('body');
-    if (backgroundSelected === 'dark') {
-        body.classList.add('dark');
-    } else if (backgroundSelected === 'light') {
-        body.classList.add('light');
-    } else if (backgroundSelected === 'dungeon') {
-        body.classList.add('dungeon');
+const changeBackground = (selectedTheme) => {
+    // 2. document.body is a built-in shortcut for document.querySelector('body')
+    const body = document.body;
+
+    // 3. CLEAN UP: Remove all potential background classes first
+    body.classList.remove('dark', 'light', 'dungeon');
+
+    // 4. Add the new class
+    if (selectedTheme) {
+        body.classList.add(selectedTheme);
     }
 }
 
-backgroundSelect.addEventListener('click', function(event) {
-    if (event.target.tagName === 'BUTTON') {
-        backgroundSelected = event.target.id;
-        changeBackground(backgroundSelected);
-    }
-});
+// 5. Ensure the element exists before adding the listener
+if (backgroundSelect) {
+    backgroundSelect.addEventListener('click', function(event) {
+        // Check if the clicked element is a button
+        if (event.target.tagName === 'BUTTON') {
+            const backgroundSelected = event.target.id;
+            changeBackground(backgroundSelected);
+        }
+    });
+}
