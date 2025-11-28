@@ -191,6 +191,7 @@ a:hover {
         align-items: center;
         justify-content: center;
         text-align: center;
+        gap: unset;
     }
     .about {
         flex-direction: column;
