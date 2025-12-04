@@ -37,3 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
         changeBackground(savedTheme);
     }
 });
+
+function createSnowflake() {
+  const snowflake = document.createElement('div');
+  snowflake.classList.add('snowflake');
+  snowflake.textContent = '❄'; // You can use distinct characters like ❅ or ❆
+  
+  // Randomize positions and animation details
+  snowflake.style.left = Math.random() * 100 + 'vw';
+  snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Between 2 and 5 seconds
+  snowflake.style.opacity = Math.random();
+  snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+  
+  document.body.appendChild(snowflake);
+  
+  // Remove snowflake after it finishes falling to keep DOM light
+  setTimeout(() => {
+    snowflake.remove();
+  }, 5000);
+}
+
+// Create a snowflake every 50 milliseconds
+setInterval(createSnowflake, 50);
