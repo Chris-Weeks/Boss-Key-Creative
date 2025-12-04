@@ -4,7 +4,8 @@ body {
     display: flex;
     flex-direction: column;
     background: #1A1A1A;
-    height: 100vh
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 body.dark {
@@ -227,4 +228,22 @@ a:hover {
     form .submit {
         font-size: 1.5rem;
     }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10px;
+  z-index: 9999; /* Ensures snow sits on top of content */
+  color: #FFF;
+  user-select: none; /* User can't highlight the snow */
+  pointer-events: none; /* User can click "through" the snow */
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(105vh);
+  }
 }
