@@ -38,24 +38,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+let snowInterval;
+let isSnowing = true;
+
 function createSnowflake() {
   const snowflake = document.createElement('div');
   snowflake.classList.add('snowflake');
-  snowflake.textContent = '❄'; // You can use distinct characters like ❅ or ❆
+  snowflake.textContent = '❄'; 
   
-  // Randomize positions and animation details
   snowflake.style.left = Math.random() * 100 + 'vw';
-  snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Between 2 and 5 seconds
+  snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; 
   snowflake.style.opacity = Math.random();
   snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
   
   document.body.appendChild(snowflake);
   
-  // Remove snowflake after it finishes falling to keep DOM light
   setTimeout(() => {
     snowflake.remove();
   }, 5000);
 }
 
-// Create a snowflake every 50 milliseconds
-setInterval(createSnowflake, 50);
+function startSnowing() {
+  // Run the createSnowflake function every 50ms
+  snowInterval = setInterval(createSnowflake, 50);
+}
+
+function stopSnowing() {
+  // 1. Stop creating new flakes
+  clearInterval(snowInterval);
+  
+  // 2. Clear all existing flakes immediately (Optional)
+  // If you want them to finish falling naturally, remove the 3 lines below.
+  const existingFlakes = document.querySelectorAll('.snowflake');
+  existingFlakes.forEach(flake => flake.remove());
+}
+
+function toggleSnow() {
+  const btn = document.getElementById('toggle-snow-btn');
+  
+  if (isSnowing) {
+    stopSnowing();
+    btn.textContent = "Turn Snow On ❄️";
+    btn.style.backgroundColor = "#ffcccc"; // Optional: Red tint when off
+  } else {
+    startSnowing();
+    btn.textContent = "Turn Snow Off 🛑";
+    btn.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+  }
+  
+  isSnowing = !isSnowing; // Flip the flag
+}
+
+// Initialize: Start the snow automatically when page loads
+startSnowing();
